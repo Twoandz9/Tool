@@ -1,5 +1,8 @@
-// 感谢 @bluman ( @qwerzl ) 大佬爆肝代码！
-// 我要跪着感谢！
+// 感谢 @bluman (@qwerzl)
+// 感谢futurkk (@futurkk)
+
+//增加前缀
+//复制这条：https://raw.githubusercontent.com/Twoandz9/Tool-Surge/main/module/rename.js#input=zh&output=zh&airport=前缀
 
 // Rename v 0.5 的使用方法
 // 在以下十二个连接中选择你原节点的格式及你需要的格式复制并修改[&airport=]部分即可。
