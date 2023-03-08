@@ -1,4 +1,4 @@
-#!name=微博去广告
+#!name=微博去广告(2z)
 #!desc=微博去广告
 [MITM]
 hostname = %APPEND% api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn
