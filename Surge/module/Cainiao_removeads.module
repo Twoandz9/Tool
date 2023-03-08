@@ -4,9 +4,9 @@
 [Rule]
 DOMAIN, amdc.m.taobao.com, REJECT
 [Script]
-cainiao-remove-ads = type=http-response,pattern=^https?://cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn,requires-body=1,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_remove_ads.js,tag=首页中部的惊喜福利推广
-cainiao-remove-ads = type=http-response,pattern=^https?://cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword,requires-body=1,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_remove_ads.js,tag=搜索框下方今日好物推荐
-cainiao-remove-ads = type=http-response,pattern=^https?://cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.index\.cn,requires-body=1,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_remove_ads.js,tag=首页底部商品推广
+cainiao-remove-ads = type=http-response,pattern=^https?://cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn,requires-body=1,script-path=https://raw.githubusercontent.com/Twoandz9/Tool/main/Surge/module/Cainiao_removeads.js,tag=首页中部的惊喜福利推广
+cainiao-remove-ads = type=http-response,pattern=^https?://cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword,requires-body=1,script-path=https://raw.githubusercontent.com/Twoandz9/Tool/main/Surge/module/Cainiao_removeads.js,tag=搜索框下方今日好物推荐
+cainiao-remove-ads = type=http-response,pattern=^https?://cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.index\.cn,requires-body=1,script-path=https://raw.githubusercontent.com/Twoandz9/Tool/main/Surge/module/Cainiao_removeads.js,tag=首页底部商品推广
 [MITM]
 hostname = %APPEND% cn-acs.m.cainiao.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn
 [URL Rewrite]
