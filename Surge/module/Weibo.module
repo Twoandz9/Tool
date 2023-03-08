@@ -1,0 +1,40 @@
+#!name = 微博去广告
+#!desc = 过滤微博广告及去除各部分推广模块
+[Rule]
+DOMAIN, adstrategy.biz.weibo.com, REJECT
+DOMAIN, kadmimage.biz.weibo.com, REJECT
+DOMAIN, sdkaction.biz.weibo.com, REJECT
+DOMAIN, sdkclick.biz.weibo.com, REJECT
+DOMAIN, sdkmonitor.biz.weibo.com, REJECT
+URL-REGEX, ^https://api.weibo.cn/2/(ug/checkin/list|push/daily)?, REJECT
+URL-REGEX, ^https://api.weibo.cn/2/!/live/media_homelist?, REJECT
+URL-REGEX, ^https://api.weibo.cn/2/photo/info?, REJECT
+URL-REGEX, ^https://api.weibo.cn/2/!/huati/(discovery_home_bottom_getdotinfo|mobile_discovery_searchchange)?, REJECT
+URL-REGEX, ^https://api.weibo.cn/2/search/container_discover?, REJECT
+URL-REGEX, ^https://api.weibo.cn/2/hot/hours_spotlight?, REJECT
+URL-REGEX, ^https://api.weibo.cn/2/video/redpacket?, REJECT
+URL-REGEX, ^https://api.weibo.cn/!/sug/list/finderchange?, REJECT
+URL-REGEX, ^https://boot.biz.weibo.com/v1/ad/realtime$, REJECT
+URL-REGEX, ^https://sdkapp.uve.weibo.com/interface/sdk/(get-lbs-cell-info.php$|sdkconfig.php?), REJECT
+URL-REGEX, ^https://card.weibo.com/article/m/aj/(reward|uvead)?, REJECT
+URL-REGEX, ^https://weibo.com/ttarticle/x/m/aj/(reward|uvead)?, REJECT
+
+[Script]
+微博去广告=type=http-response,pattern=^https?://m?api\.weibo\.c(n|om)/2/(cardlist|searchall|page|messageflow|statuses/(unread_)?friends(/|_)timeline|groups/timeline|statuses/(unread_hot_timeline|extend|video_mixtimeline)|profile/(me|statuses)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item|search/(finder|container_timeline|container_discover)),requires-body=1,script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_main.js
+
+[URL Rewrite]
+^https:\/\/api\.weibo\.cn\/2\/(ug\/checkin\/list|push\/daily)\? reject-dict
+^https:\/\/api\.weibo\.cn\/2\/!\/live\/media_homelist\? reject-dict
+^https:\/\/api\.weibo\.cn\/2\/photo\/info\? reject-dict
+^https:\/\/api\.weibo\.cn\/2\/!\/huati\/(discovery_home_bottom_getdotinfo|mobile_discovery_searchchange)\? reject-dict
+^https:\/\/api\.weibo\.cn\/2\/search\/container_discover\? reject-dict
+^https:\/\/api\.weibo\.cn\/2\/hot\/hours_spotlight\? reject-dict
+^https:\/\/api\.weibo\.cn\/2\/video\/redpacket\? reject-dict
+^https:\/\/api\.weibo\.cn\/!\/sug\/list\/finderchange\? reject-dict
+^https:\/\/boot\.biz\.weibo\.com\/v1\/ad\/realtime$ reject-dict
+^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/(get-lbs-cell-info\.php$|sdkconfig\.php\?) reject
+^https:\/\/card\.weibo\.com\/article\/m\/aj\/(reward|uvead)\? reject-dict
+^https:\/\/weibo\.com\/ttarticle\/x\/m\/aj\/(reward|uvead)\? reject-dict
+
+[MITM]
+hostname = %APPEND% api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn
