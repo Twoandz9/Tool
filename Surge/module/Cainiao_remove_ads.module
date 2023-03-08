@@ -1,5 +1,6 @@
-# 菜鸟去广告(2z)
-# 过滤菜鸟广告（原菜鸟裹裹）
+#!name = 菜鸟去广告(2z)
+#!desc =过滤菜鸟裹裹广告
+#!author = 2z
 
 [Rule]
 DOMAIN, amdc.m.taobao.com, REJECT
